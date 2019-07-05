@@ -9,8 +9,6 @@ from ckanext.developerpage.helpers import get_host_info, get_ckan_info
 
 class DeveloperpagePlugin(p.SingletonPlugin):
     p.implements(p.IConfigurer)
-    p.implements(p.IActions)
-    p.implements(p.IAuthFunctions)
     p.implements(p.IBlueprint)
     p.implements(p.ITemplateHelpers)
 
@@ -26,9 +24,6 @@ class DeveloperpagePlugin(p.SingletonPlugin):
         return {
             'get_host_info' : get_host_info,
             'get_ckan_info' : get_ckan_info, }
-
-    def get_actions(self):
-        return {}
 
     def get_blueprint(self):
         return blueprint.developerpage
