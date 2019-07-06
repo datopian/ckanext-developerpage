@@ -13,30 +13,45 @@ import ckan.logic as logic
 
 from ckan.common import g, config, _
 
-
-
 import platform
+import humanize as hz
+
 
 log = logging.getLogger(__name__)
 
 
+def humanize(value):
+    return hz.naturalsize(value, gnu=True)
+    
+
 def memory_info():
     import psutil
-    return dict(psutil.virtual_memory()._asdict())
+    memory = psutil.virtual_memory()
+    cpu_times = psutil.cpu_times_percent()
+    return {
+            'memory_available' : humanize(memory.available),
+            'memory_used' : str(memory.percent) + "%",
+            'cpu_user_mode' : str(cpu_times.user) + "%",
+            'cpu_kernel_mode' : str(cpu_times.system) + "%",
+            'cpu_idle' : str(cpu_times.idle) + '%',
+        }
 
-def average_load():
+
+def load_average_5min():
     import psutil
-    return psutil.getloadavg()
+    return {
+            'load_average_5min' : psutil.getloadavg()[1],
+        }
 
 def get_host_info():
     python_platform = {
             'machine_architecture' : platform.machine(),
-            'python_build' : platform.python_build(),
+            'python_version' : platform.python_version(),
         }
     memory = memory_info()
-    load = average_load()
+    load = load_average_5min()
     python_platform.update(memory)
-    python_platform.update({'load_average' : load})
+    python_platform.update(load)
     return python_platform
 
 def get_ckan_info():

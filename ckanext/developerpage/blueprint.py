@@ -1,5 +1,5 @@
 import sys
-from flask import Blueprint
+from flask import Blueprint, abort
 from flask.views import MethodView 
 
 import ckan.plugins.toolkit as toolkit
@@ -24,20 +24,12 @@ def before_request():
             u'model': model,
             u'user': g.user,
             u'auth_user_obj': g.userobj}
-        logic.check_access(u'site_read', context)
+        logic.check_access(u'dashboard_activity_list', context)
     except logic.NotAuthorized:
         abort(403)
 
-
-
 def show():
-    extra_vars = {}
-    ckan_info_vars = dp_helpers.get_ckan_info()
-    host_info_vars = dp_helpers.get_host_info()
-    extra_vars.update(ckan_info_vars)
-    extra_vars.update(host_info_vars)
-        
-    return base.render(u'developerpage/developerpage.html', extra_vars=extra_vars)
+    return base.render(u'developerpage/developerpage.html')
 
 
 developerpage_urls = [
