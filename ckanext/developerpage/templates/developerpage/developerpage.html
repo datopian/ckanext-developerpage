@@ -3,32 +3,32 @@
 {% block primary_content %}
     <h1> CKAN Developer Information </h1>
     <p>
-    <table>
+    <table style="border: 1px solid black;">
 	<tr><td>Host</td></tr>
     {% for key, value in h.get_host_info().items() %}
         <tr>
-            <td>{{ key }}</td>
-            <td>{{ value }}</td>
+            <td style="border-bottom: 1px solid black">{{ key }}</td>
+            <td style="border-bottom: 1px solid black">{{ value }}</td>
         </tr>
     {% endfor %}
     </table>
     <br />
-    <table>
+    <table style="border: 1px solid black;">
 	<tr><td>CKAN</td></tr>
     {% for key, value in h.get_ckan_info().items() %}
         <tr>
-            <td>{{ key }}</td>
-            <td>{{ value }}</td>
+            <td style="border-bottom: 1px solid black">{{ key }}</td>
+            <td style="border-bottom: 1px solid black">{{ value }}</td>
         </tr>
     {% endfor %}
     </table>
     <br />
-    <table>
+    <table style="border: 1px solid black;">
 	<tr><td>Site</td></tr>
     {% for key, value in h.counter_helper().items() %}
         <tr>
-            <td>{{ key }}</td>
-            <td>{{ value }}</td>
+            <td style="border-bottom: 1px solid black">{{ key }}</td>
+            <td style="border-bottom: 1px solid black">{{ value }}</td>
         </tr>
     {% endfor %}
     </table>
