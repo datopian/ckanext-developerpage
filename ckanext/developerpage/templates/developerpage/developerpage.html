@@ -5,7 +5,7 @@
     <p>
     <table>
 	<tr><td>Host</td></tr>
-    {% for key, value in h.get_host_info() %}
+    {% for key, value in h.get_host_info().items() %}
         <tr>
             <td>{{ key }}</td>
             <td>{{ value }}</td>
@@ -15,7 +15,7 @@
     <br />
     <table>
 	<tr><td>CKAN</td></tr>
-    {% for key, value in h.get_ckan_info() %}
+    {% for key, value in h.get_ckan_info().items() %}
         <tr>
             <td>{{ key }}</td>
             <td>{{ value }}</td>
@@ -25,7 +25,7 @@
     <br />
     <table>
 	<tr><td>Site</td></tr>
-    {% for key, value in h.counter_helper() %}
+    {% for key, value in h.counter_helper().items() %}
         <tr>
             <td>{{ key }}</td>
             <td>{{ value }}</td>
