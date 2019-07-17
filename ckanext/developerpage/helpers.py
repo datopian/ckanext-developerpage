@@ -22,7 +22,7 @@ log = logging.getLogger(__name__)
 
 def humanize(value):
     return hz.naturalsize(value, gnu=True)
-    
+
 
 def memory_info():
     import psutil
@@ -40,7 +40,7 @@ def memory_info():
 def load_average_5min():
     import psutil
     return {
-            'load_average_5min' : psutil.getloadavg()[1],
+            'load_average_5min' : '{:.2f}'.format(psutil.getloadavg()[1]),
         }
 
 def get_host_info():
@@ -60,4 +60,3 @@ def get_ckan_info():
             u'user': g.user,
             u'auth_user_obj': g.userobj}
     return status_show(context, data_dict={})
-
