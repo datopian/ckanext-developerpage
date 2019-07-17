@@ -4,37 +4,34 @@
     <h1> CKAN Developer Information </h1>
     <p>
     <table style="border: 1px solid black;">
-	<tr><th style="border-bottom: 1px solid black; background: grey" colspan="2">Host</th></tr>
+	<tr><th style="border: 1px solid black; background: grey" colspan="2">Host</th></tr>
     {% for key, value in h.get_host_info().items() %}
         <tr>
-            <td style="border-bottom: 1px solid black">{{ key }}</td>
-            <td style="border-bottom: 1px solid black">{{ value }}</td>
+            <td style="border: 1px solid black">{{ key }}</td>
+            <td style="border: 1px solid black">{{ value }}</td>
         </tr>
     {% endfor %}
     </table>
     <br />
     <table style="border: 1px solid black;">
-	<tr><th style="border-bottom: 1px solid black; background: grey" colspan="2">CKAN</th></tr>
+	<tr><th style="border: 1px solid black; background: grey" colspan="2">CKAN</th></tr>
     {% for key, value in h.get_ckan_info().items() %}
         <tr>
-            <td style="border-bottom: 1px solid black">{{ key }}</td>
-            <td style="border-bottom: 1px solid black">{{ value }}</td>
+            <td style="border: 1px solid black">{{ key }}</td>
+            <td style="border: 1px solid black">{{ value }}</td>
         </tr>
     {% endfor %}
     </table>
     <br />
     <table style="border: 1px solid black;">
-	<tr><th style="border-bottom: 1px solid black; background: grey" colspan="2">Site</th></tr>
+	<tr><th style="border: 1px solid black; background: grey" colspan="2">Site</th></tr>
     {% for key, value in h.counter_helper().items() %}
         <tr>
-            <td style="border-bottom: 1px solid black">{{ key }}</td>
-            <td style="border-bottom: 1px solid black">{{ value }}</td>
+            <td style="border: 1px solid black">{{ key }}</td>
+            <td style="border: 1px solid black">{{ value }}</td>
         </tr>
     {% endfor %}
     </table>
     </p>
-    
+
 {% endblock %}
-
-
-
