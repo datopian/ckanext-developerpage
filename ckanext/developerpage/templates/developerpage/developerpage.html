@@ -2,15 +2,36 @@
 
 {% block primary_content %}
     <h1> CKAN Developer Information </h1>
-    <p> This content will be added to the page </p>
+    <p>
+    <table class="table table-striped table-bordered table-condensed">
+	<tr><th colspan="2">Host</th></tr>
+    {% for key, value in h.get_host_info().items() %}
+        <tr>
+            <td>{{ key }}</td>
+            <td>{{ value }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+    <br />
+    <table class="table table-striped table-bordered table-condensed">
+	<tr><th colspan="2">CKAN</th></tr>
+    {% for key, value in h.get_ckan_info().items() %}
+        <tr>
+            <td>{{ key }}</td>
+            <td>{{ value }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+    <br />
+    <table class="table table-striped table-bordered table-condensed">
+	<tr><th colspan="2">Site</th></tr>
+    {% for key, value in h.counter_helper().items() %}
+        <tr>
+            <td>{{ key }}</td>
+            <td>{{ value }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+    </p>
 
-    {{ h.get_host_info() }}
-    <br>
-    {{ h.get_ckan_info() }}
-    <br>
-    {{ h.counter_helper() }}
-    
 {% endblock %}
-
-
-
