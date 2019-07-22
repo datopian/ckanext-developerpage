@@ -3,32 +3,32 @@
 {% block primary_content %}
     <h1> CKAN Developer Information </h1>
     <p>
-    <table style="border: 1px solid black;">
-	<tr><th style="border: 1px solid black; background: grey" colspan="2">Host</th></tr>
+    <table class="table table-striped table-bordered table-condensed">
+	<tr><th colspan="2">Host</th></tr>
     {% for key, value in h.get_host_info().items() %}
         <tr>
-            <td style="border: 1px solid black">{{ key }}</td>
-            <td style="border: 1px solid black">{{ value }}</td>
+            <td>{{ key }}</td>
+            <td>{{ value }}</td>
         </tr>
     {% endfor %}
     </table>
     <br />
-    <table style="border: 1px solid black;">
-	<tr><th style="border: 1px solid black; background: grey" colspan="2">CKAN</th></tr>
+    <table class="table table-striped table-bordered table-condensed">
+	<tr><th colspan="2">CKAN</th></tr>
     {% for key, value in h.get_ckan_info().items() %}
         <tr>
-            <td style="border: 1px solid black">{{ key }}</td>
-            <td style="border: 1px solid black">{{ value }}</td>
+            <td>{{ key }}</td>
+            <td>{{ value }}</td>
         </tr>
     {% endfor %}
     </table>
     <br />
-    <table style="border: 1px solid black;">
-	<tr><th style="border: 1px solid black; background: grey" colspan="2">Site</th></tr>
+    <table class="table table-striped table-bordered table-condensed">
+	<tr><th colspan="2">Site</th></tr>
     {% for key, value in h.counter_helper().items() %}
         <tr>
-            <td style="border: 1px solid black">{{ key }}</td>
-            <td style="border: 1px solid black">{{ value }}</td>
+            <td>{{ key }}</td>
+            <td>{{ value }}</td>
         </tr>
     {% endfor %}
     </table>
