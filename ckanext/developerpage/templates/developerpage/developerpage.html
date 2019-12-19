@@ -32,6 +32,16 @@
         </tr>
     {% endfor %}
     </table>
+    <br />
+    <table class="table table-striped table-bordered table-condensed">
+	<tr><th colspan="3">Extensions</th></tr>
+    {% for key, value in h.get_extensions_info().items() %}
+        <tr>
+            <td>{{ key }}</td>
+            <td>{{ value[0] }}</td>
+            <td>{{ value[1] }}</td>
+        </tr>
+    {% endfor %}
+    </table>
     </p>
-
 {% endblock %}
